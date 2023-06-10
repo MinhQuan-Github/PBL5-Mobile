@@ -8,6 +8,7 @@
 import UIKit
 import WebKit
 import Lottie
+import AVFoundation
 
 protocol DetectReturnProtocol: AnyObject {
     func didReturnResult(model: ResultModel)
@@ -32,7 +33,7 @@ class ViewController: UIViewController {
         self.animationView.play()
     }
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initUI()
@@ -60,11 +61,11 @@ class ViewController: UIViewController {
         self.historyTableView.register(UINib(nibName: HistoryTableViewCell.identifier, bundle: .main), forCellReuseIdentifier: HistoryTableViewCell.identifier)
     }
     
-
+    
     @IBAction func playTap(_ sender: UIButton) {
         self.animationView.isHidden = true
         let url = "\(BASE_DOMAIN):5000/streaming"
-
+        
         let request = URLRequest(url: URL(string: url)!)
         webView.load(request)
     }
@@ -82,7 +83,14 @@ class ViewController: UIViewController {
             self.present(vc, animated: true)
         }
     }
-
+    
+    @IBAction func cameraTap(_ sender: UIButton) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
     func captureImage(from view: UIView) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0.0)
         defer { UIGraphicsEndImageContext() }
@@ -94,6 +102,11 @@ class ViewController: UIViewController {
         guard let capturedImage = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
         
         return capturedImage
+    }
+    
+    @IBAction func editTap(_ sender: UIButton) {
+        let vc = EditDomainViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -116,7 +129,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailViewController(model: self.data[indexPath.row])
-//        vc.config(model: self.data[indexPath.row])
+        //        vc.config(model: self.data[indexPath.row])
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -141,6 +154,25 @@ extension ViewController: DetectReturnProtocol {
         DispatchQueue.main.async {
             self.historyTableView.reloadData()
         }
+    }
+}
+
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true) {
+            if let pickedImage = info[.originalImage] as? UIImage {
+                let vc = AlertViewController(image: pickedImage)
+                vc.delegate = self
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true)
+            }
+        }
+    }
+    
+    // Hàm để huỷ việc chụp ảnh
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }
 

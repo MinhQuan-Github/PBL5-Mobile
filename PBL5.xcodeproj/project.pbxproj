@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9B2750C0FD039FBE659AC8DB /* Pods_PBL5.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D74C36675A6F4713A8D3FC /* Pods_PBL5.framework */; };
+		FB24B4912A3366C4003C2343 /* EditDomainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB24B48F2A3366C3003C2343 /* EditDomainViewController.swift */; };
+		FB24B4922A3366C4003C2343 /* EditDomainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB24B4902A3366C3003C2343 /* EditDomainViewController.xib */; };
 		FB53F1D22A224CE900E2E206 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB53F1D12A224CE900E2E206 /* AppDelegate.swift */; };
 		FB53F1D42A224CE900E2E206 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB53F1D32A224CE900E2E206 /* SceneDelegate.swift */; };
 		FB53F1D62A224CE900E2E206 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB53F1D52A224CE900E2E206 /* ViewController.swift */; };
@@ -45,6 +47,8 @@
 		28D74C36675A6F4713A8D3FC /* Pods_PBL5.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PBL5.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B9DFC410A68197B500C9A1A /* Pods-PBL5.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PBL5.debug.xcconfig"; path = "Target Support Files/Pods-PBL5/Pods-PBL5.debug.xcconfig"; sourceTree = "<group>"; };
 		EB3262E0843E0974406E17AA /* Pods-PBL5.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PBL5.release.xcconfig"; path = "Target Support Files/Pods-PBL5/Pods-PBL5.release.xcconfig"; sourceTree = "<group>"; };
+		FB24B48F2A3366C3003C2343 /* EditDomainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDomainViewController.swift; sourceTree = "<group>"; };
+		FB24B4902A3366C3003C2343 /* EditDomainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditDomainViewController.xib; sourceTree = "<group>"; };
 		FB53F1CE2A224CE900E2E206 /* PBL5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PBL5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB53F1D12A224CE900E2E206 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB53F1D32A224CE900E2E206 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +93,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FB24B48E2A3366A1003C2343 /* EditBaseDomain */ = {
+			isa = PBXGroup;
+			children = (
+				FB24B48F2A3366C3003C2343 /* EditDomainViewController.swift */,
+				FB24B4902A3366C3003C2343 /* EditDomainViewController.xib */,
+			);
+			path = EditBaseDomain;
+			sourceTree = "<group>";
+		};
 		FB53F1C52A224CE800E2E206 = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +123,7 @@
 		FB53F1D02A224CE900E2E206 /* PBL5 */ = {
 			isa = PBXGroup;
 			children = (
+				FB24B48E2A3366A1003C2343 /* EditBaseDomain */,
 				FB53F2272A24578000E2E206 /* DB */,
 				FB53F2232A2454CF00E2E206 /* loading.json */,
 				FB53F21E2A23B96500E2E206 /* Detail */,
@@ -237,6 +251,7 @@
 				FB53F1DE2A224CEB00E2E206 /* LaunchScreen.storyboard in Resources */,
 				FB53F2222A23B97C00E2E206 /* DetailViewController.xib in Resources */,
 				FB53F1DB2A224CEB00E2E206 /* Assets.xcassets in Resources */,
+				FB24B4922A3366C4003C2343 /* EditDomainViewController.xib in Resources */,
 				FB53F20E2A23695B00E2E206 /* HistoryTableViewCell.xib in Resources */,
 				FB53F1D92A224CE900E2E206 /* Main.storyboard in Resources */,
 				FB53F22F2A25035400E2E206 /* MyDB.db in Resources */,
@@ -298,6 +313,7 @@
 				FB53F1D22A224CE900E2E206 /* AppDelegate.swift in Sources */,
 				FB53F2192A23733800E2E206 /* ResultModel.swift in Sources */,
 				FB53F20D2A23695B00E2E206 /* HistoryTableViewCell.swift in Sources */,
+				FB24B4912A3366C4003C2343 /* EditDomainViewController.swift in Sources */,
 				FB53F2162A236C4F00E2E206 /* AlertViewController.swift in Sources */,
 				FB53F1D42A224CE900E2E206 /* SceneDelegate.swift in Sources */,
 				FB53F21B2A237B9D00E2E206 /* API.swift in Sources */,
@@ -453,6 +469,8 @@
 				DEVELOPMENT_TEAM = TQJ6Y3982Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PBL5/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera use for capture image";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Use for get image";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -483,6 +501,8 @@
 				DEVELOPMENT_TEAM = TQJ6Y3982Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PBL5/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera use for capture image";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Use for get image";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

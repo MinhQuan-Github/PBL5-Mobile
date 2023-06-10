@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
@@ -25,13 +25,20 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.textView.delegate = self
         self.imageView.image = decodeBase64Image(base64String: model.image)
         self.textView.text = model.result
-        self.textView.isUserInteractionEnabled = false
+//        self.textView.isUserInteractionEnabled = false
         self.textView.layer.cornerRadius = 20
         self.textView.layer.borderColor = UIColor.darkGray.cgColor
         self.textView.backgroundColor = .white
     }
 
-
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
 }

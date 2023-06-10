@@ -113,7 +113,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="OCR PBL5" id="ag3-Gd-DJS">
-                        <barButtonItem key="rightBarButtonItem" image="arrow.2.circlepath" catalog="system" style="plain" id="Mai-f7-2m3"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="organize" id="cLD-dh-qES">
+                            <connections>
+                                <action selector="cameraTap:" destination="BYZ-38-t0r" id="lLd-rg-H2r"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="Mai-f7-2m3">
+                            <connections>
+                                <action selector="editTap:" destination="BYZ-38-t0r" id="793-VG-mCp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="animationView" destination="exy-9u-4q8" id="AZt-re-RPg"/>
@@ -151,7 +160,6 @@
         <designable name="exy-9u-4q8"/>
     </designables>
     <resources>
-        <image name="arrow.2.circlepath" catalog="system" width="128" height="104"/>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

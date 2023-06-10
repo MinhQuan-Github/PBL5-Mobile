@@ -7,7 +7,7 @@
 
 import UIKit
 
-let BASE_DOMAIN = "http://192.168.198.103"
+var BASE_DOMAIN = "http://192.168.69.103"
 
 func sendImageToAPI(imageBase64: String, completion: @escaping(String) -> (Void), failure: @escaping() -> (Void)) {
     guard let url = URL(string: "\(BASE_DOMAIN):5000/transfer") else {
